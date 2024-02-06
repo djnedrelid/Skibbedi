@@ -8,16 +8,16 @@ På tilfeldige tidspunkt i mange spill er det uunngåelig at AWD vil bli trykket
 i dette tilfellet vil programmet produsere en skibbedi toilet og sang. Uforståelig noe dagens 
 generasjon synes er svært artig... Men gøy å lage for ungene og bare for tull.
 
-**Installere via tilgang på innlogget skrivebord**
+**Installere via tilgang på innlogget skrivebord**  
 Kjør `skibbedi.cmd` som administrator. C:\Skibbedi blir opprettet sammen med defender unntak og auto kjøring.
 
-**Innstallere via WinRE eller hvilken som helst WinRE basert USB ISO**
+**Innstallere via WinRE eller hvilken som helst WinRE basert USB ISO**  
 Kjør `skibbedi winre` som administrator. Da kan man legge det inn på hvilken som helst PC bare man har fysisk tilgang.
 
-**Avslutte**
+**Avslutte**  
 Når man har fått nok, er det bare for brukeren å holde nede L+O+V, eller avslutte via oppgavebehandling for å avslutte programmet.  
 
-**Avinstallering**
+**Avinstallering**  
 Kjør `skibbedi.cmd fjern` fra innlogget skrivebord med administrative rettigheter (win+x).
 
 Programmet vil skjule seg fra oppgavelinjen men være synlig i oppgavebehandling hvis man vil tvinge det av eller sjekke at det kjører.  
