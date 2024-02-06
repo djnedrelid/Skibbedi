@@ -2,7 +2,6 @@
 
 // Globale variabler.
 RECT DesktopRect;
-WNDCLASSEX wc;
 HINSTANCE hInst;
 bool GlassBroken = false;
 
@@ -17,7 +16,7 @@ bilde bilder[] = {
 };
 size_t antall_bilder = sizeof(bilder)/sizeof(bilder[0]);
 
-// Message handler for alle vindu, trenger bare en felles basic.
+// Message handler for hovedvindu.
 LRESULT __stdcall WndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
 	switch (Msg) {
@@ -36,24 +35,40 @@ LRESULT __stdcall WndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 	return 0;
 }
 
+// Message handler for skibbedi vinduer.
+LRESULT __stdcall SkibbediWndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
+{
+	switch (Msg) {
+	case WM_CLOSE:
+		DestroyWindow(hWnd);
+		break;
+
+	default:
+		return DefWindowProc(hWnd, Msg, wParam, lParam);
+	}
+
+	return 0;
+}
+
 void nyttvindu()
 {
+	srand((unsigned int)time(0));
 	bilde valgt_bilde = bilder[rand() % antall_bilder];
 	int bilde_x = valgt_bilde.w;
 	int bilde_y = valgt_bilde.h;
 
 	HWND nyHWND = CreateWindowEx(
 		WS_EX_LAYERED | WS_EX_TRANSPARENT | WS_EX_TOOLWINDOW, 
-		L"MainClass", 
+		L"SkibbediClass", 
 		L"Skibbedi", 
 		WS_POPUP, 
 		0, 
 		0, 
 		bilde_x, bilde_y, 
-		NULL, 
-		NULL, 
+		0, 
+		0, 
 		hInst, 
-		NULL
+		0
 	);
 
 	if (!nyHWND) {
@@ -105,9 +120,53 @@ void nyttvindu()
 	DeleteDC(BufferDC);
 	ReleaseDC(nyHWND, nyHDC);
 
+	// Skibbedi sang.
 	PlaySound(
 		MAKEINTRESOURCE(SKIBBEDI_LYD1),
 		GetModuleHandle(NULL),
 		SND_RESOURCE | SND_ASYNC | SND_NODEFAULT
 	);
+}
+
+void RegistrerVinduKlasser()
+{
+	WNDCLASSEX wc;
+
+	// Hovedvindu.
+	wc.cbSize = sizeof(WNDCLASSEX);
+	wc.style = 0;
+	wc.lpfnWndProc = (WNDPROC)WndProc;
+	wc.cbClsExtra = 0;
+	wc.cbWndExtra = 0;
+	wc.hInstance = hInst;
+	wc.hIcon = LoadIconW(hInst, MAKEINTRESOURCE(IKON));
+	wc.hIconSm = 0;
+	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+	wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+	wc.lpszMenuName = NULL;
+	wc.lpszClassName = L"MainClass";
+
+	if (!RegisterClassEx(&wc)) {
+		GetError(L"Feil under registrering av vinduklasse 1.");
+		exit(1);
+	}
+
+	// Skibbedivindu.
+	wc.cbSize = sizeof(WNDCLASSEX);
+	wc.style = 0;
+	wc.lpfnWndProc = (WNDPROC)SkibbediWndProc;
+	wc.cbClsExtra = 0;
+	wc.cbWndExtra = 0;
+	wc.hInstance = hInst;
+	wc.hIcon = LoadIconW(hInst, MAKEINTRESOURCE(IKON));
+	wc.hIconSm = 0;
+	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+	wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+	wc.lpszMenuName = NULL;
+	wc.lpszClassName = L"SkibbediClass";
+
+	if (!RegisterClassEx(&wc)) {
+		GetError(L"Feil under registrering av vinduklasse 2.");
+		exit(1);
+	}
 }

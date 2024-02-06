@@ -4,16 +4,20 @@ Tulleprogram som tar utgangspunkt i mye WASD knappetrykking.
 
 ![Example UI](example_ui.png)  
    
-   
 På tilfeldige tidspunkt i mange spill er det uunngåelig at AWD vil bli trykket ned på likt, 
 i dette tilfellet vil programmet produsere en skibbedi toilet og sang. Uforståelig noe dagens 
-generasjon synes er svært artig... Så mest for ungene sin skyld.
+generasjon synes er svært artig... Men gøy å lage for ungene og bare for tull.
 
-Når man har spøkt nok, er det bare å holde nede L+O+V for å avslutte programmet, som er alenestående og krever ingen installering.  
+**Installere via tilgang på innlogget skrivebord**
+Kjør `skibbedi.cmd` som administrator. C:\Skibbedi blir opprettet sammen med defender unntak og auto kjøring.
 
-Et batch skript medfølger som man kan bruke for å kopiere inn programmet i oppstartsmappen til den man skal spøke med, 
-men funker også fint ved å bare kjøre den. Den vil skjule seg fra oppgavelinjen men være synlig i oppgavebehandling hvis 
-man vil tvinge det av eller sjekke at det kjører.  
+**Innstallere via WinRE eller hvilken som helst WinRE basert USB ISO**
+Kjør `skibbedi winre` som administrator. Da kan man legge det inn på hvilken som helst PC bare man har fysisk tilgang.
 
-**Hvis du bruker skriptet for automatisk oppstart, kan du bare fjerne det herfra igjen:**  
-```C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp```
+**Avslutte**
+Når man har fått nok, er det bare for brukeren å holde nede L+O+V, eller avslutte via oppgavebehandling for å avslutte programmet.  
+
+**Avinstallering**
+Kjør `skibbedi.cmd fjern` fra innlogget skrivebord med administrative rettigheter (win+x).
+
+Programmet vil skjule seg fra oppgavelinjen men være synlig i oppgavebehandling hvis man vil tvinge det av eller sjekke at det kjører.  
