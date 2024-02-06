@@ -15,7 +15,7 @@ Kjør `skibbedi.cmd` som administrator. C:\Skibbedi blir opprettet sammen med de
 Kjør `skibbedi winre` som administrator. Da kan man legge det inn på hvilken som helst PC bare man har fysisk tilgang.
 
 **Avslutte**  
-Når man har fått nok, er det bare for brukeren å holde nede L+O+V, eller avslutte via oppgavebehandling for å avslutte programmet.  
+Når man har fått nok, er det bare for brukeren å holde nede L+O+V, eller avslutte via oppgavebehandling for å avslutte prosessen DetMaaDaVaereLovAaSkibbedi.exe.  
 
 **Avinstallering**  
 Kjør `skibbedi.cmd fjern` fra innlogget skrivebord med administrative rettigheter (win+x).
