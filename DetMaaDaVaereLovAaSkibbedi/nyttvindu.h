@@ -126,8 +126,27 @@ void nyttvindu()
 		GetModuleHandle(NULL),
 		SND_RESOURCE | SND_ASYNC | SND_NODEFAULT
 	);
+	
+	// Vis vindu i 10 sekunder.
+	time_t sekunder = std::time(nullptr);
+	while ((std::time(nullptr) - sekunder) < 10) {
 
-	Sleep(8000);
+		// Pass på at vindu alltid er øverst.
+		srand((unsigned int)time(0));
+		SetWindowPos(
+			nyHWND,
+			HWND_TOPMOST,
+			x,
+			y,
+			bilde_x,
+			bilde_y,
+			SWP_SHOWWINDOW
+		);
+
+		// CPU.
+		Sleep(1);
+	}
+
 	SendMessage(nyHWND, WM_CLOSE, 0, 0);
 }
 
