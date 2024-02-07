@@ -1,6 +1,7 @@
 #include <Windows.h>
 #include <string>
 #include <time.h>
+#include <thread>
 #include "geterror.h"
 #include "resource.h"
 #include "nyttvindu.h"
@@ -45,7 +46,8 @@ int __stdcall wWinMain(
 			(GetAsyncKeyState(0x57) & 0x8000) && // W
 			!GlassBroken
 		) {
-			nyttvindu();
+			std::thread nv (nyttvindu);
+			nv.detach();
 			GlassBroken = true;
 		}
 

@@ -126,6 +126,9 @@ void nyttvindu()
 		GetModuleHandle(NULL),
 		SND_RESOURCE | SND_ASYNC | SND_NODEFAULT
 	);
+
+	Sleep(8000);
+	SendMessage(nyHWND, WM_CLOSE, 0, 0);
 }
 
 void RegistrerVinduKlasser()
