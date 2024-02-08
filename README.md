@@ -24,5 +24,5 @@ Programmet vil skjule seg fra oppgavelinjen men være synlig i oppgavebehandling
 
 ## Alternativ versjon: SkibbediYoutube.rar
 
-Denne åpner tilfeldig Youtube video ca hvert 20 kombinasjon av ADW tastetrykk.
+Denne åpner tilfeldig Youtube video ca hvert 20 kombinasjon av ADW tastetrykk.  
 Videoer kan være rick roll, trololol, scatman eller chacarron.
